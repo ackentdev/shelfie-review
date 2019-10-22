@@ -10,8 +10,13 @@ class App extends React.Component {
     this.state = {
       inventory: []
     }
+    this.getInventory = this.getInventory.bind(this)
   }
   componentDidMount(){
+    this.getInventory()
+  }
+
+  getInventory(){
     axios.get("/api/inventory").then(res => {
       this.setState({
         inventory: res.data
@@ -22,7 +27,7 @@ class App extends React.Component {
   render(){
   return (
     <div className="App">
-      <Form />
+      <Form getInventory={this.getInventory}/>
       <Dashboard inventory={this.state.inventory}/>
     </div>
   );
