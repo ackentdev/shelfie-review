@@ -28,7 +28,7 @@ class App extends React.Component {
   return (
     <div className="App">
       <Form getInventory={this.getInventory}/>
-      <Dashboard inventory={this.state.inventory}/>
+      <Dashboard getInventory={this.getInventory} inventory={this.state.inventory}/>
     </div>
   );
   }
